@@ -1,0 +1,12 @@
+"use strict";
+exports.__esModule = true;
+var express_1 = require("express");
+// import SchemaValidator from '../../../../common/middleware/schema-validator.middleware';
+var partner_schema_validator_middleware_1 = require("../../middleware/user-schema-validator.middleware");
+var partner_controller_1 = require("./partner.controller");
+var partner_schema_1 = require("./partner.schema");
+var controller = new partner_controller_1["default"]();
+var router = express_1["default"].Router({ caseSensitive: true });
+var validateRequest = partner_schema_validator_middleware_1["default"](true, partner_schema_1.PartnerSchema);
+// router.post("/initDashboardSummary", validateRequest, (req, res, next) => controller.initDashboardSummary(req, res, next));
+exports["default"] = router;

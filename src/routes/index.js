@@ -1,0 +1,11 @@
+"use strict";
+exports.__esModule = true;
+var express_1 = require("express");
+var common_middleware_1 = require("../common/middleware/common.middleware");
+var routes_1 = require("../modules/partner/routes");
+// import partnerRouter from "../modules/partner/routes";
+var router = express_1["default"].Router({ caseSensitive: true });
+router.use(common_middleware_1["default"]);
+router.use("/partner", routes_1["default"]);
+// router.use("/partner", partnerRouter);
+exports["default"] = router;

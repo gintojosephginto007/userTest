@@ -1,0 +1,8 @@
+# Ignore all files in this folder.
+#*
+#!SQL
+#!.gitignore
+uploads
+logs
+config
+downloads
