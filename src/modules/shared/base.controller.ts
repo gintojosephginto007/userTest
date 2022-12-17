@@ -1,6 +1,6 @@
 import { Response } from 'express';
 import _ from 'lodash';
-import { databaseLogger, globalLogger } from "../../common/logger";
+// import { databaseLogger, globalLogger } from "../../common/logger";
 import { IApiResponse} from '../../common/models/api-response.interface';
 import { ISqlExcuteParams } from '../../common/models/sql-excute.interface';
 // import fcm from "../../config/firebase/fcm";
@@ -77,9 +77,9 @@ export default class BaseController extends DataTableController {
       }
 
       if (statusCode && statusCode > 200) {
-        globalLogger.log('error', `server error: ${message}`, { statusCode, statusFlag, error, path: response.path, body: response.body });
+        // globalLogger.log('error', `server error: ${message}`, { statusCode, statusFlag, error, path: response.path, body: response.body });
         if (statusCode >= 500) {
-          databaseLogger.log('error', `Database error: ${message}`, { statusCode, statusFlag, error, path: response.path, body: response.body });
+          // databaseLogger.log('error', `Database error: ${message}`, { statusCode, statusFlag, error, path: response.path, body: response.body });
           statusCode = 500;
           statusFlag = false;
           message = i18n.__('went_wrong');
@@ -97,7 +97,7 @@ export default class BaseController extends DataTableController {
         error
       });
     } catch (error) {
-      globalLogger.info(`server error: setResponse catch Error`, { msgType, statusFlag, statusCode, message, data, error });
+      // globalLogger.info(`server error: setResponse catch Error`, { msgType, statusFlag, statusCode, message, data, error });
       statusCode = 500;
       status = 'FAILURE';
       data = {};

@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { OkPacket, ResultSetHeader, RowDataPacket } from "mysql2/promise";
-import { serverLogger } from '../../common/logger';
+// import { serverLogger } from '../../common/logger';
 import { EmailTemplate } from '../../common/models/email-params.interface';
 import { SMSTemplate } from '../../common/models/sms-params.interface';
 import { IProcedureParams, ISpResponse, ISqlExcuteParams, ISqlExcuteResult } from "../../common/models/sql-excute.interface";

@@ -27,10 +27,12 @@ const dailyRotateFileOptions = {
     datePattern: 'YYYY_MM_DD'
 }
 
+/*
 const serverOptions = {
     filename: `${logsDirectory}/%DATE%_server.log`,
     ...dailyRotateFileOptions
 };
+
 
 const globalOptions = {
     filename: `${logsDirectory}/%DATE%_global.log`,
@@ -65,10 +67,10 @@ const databaseLogger = winston.createLogger({
 
 const console = new winston.transports.Console();
 serverLogger.add(console);
-
+*/
 
 export {
-    globalLogger,
-    serverLogger,
-    databaseLogger
+    // globalLogger,
+    // serverLogger,
+    // databaseLogger
 };

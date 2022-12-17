@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const logger_1 = require("../logger");
+// import { globalLogger } from '../logger';
 class JSONParseError extends SyntaxError {
 }
 exports.default = (err, req, res, next) => {
-    logger_1.globalLogger.log('error', err.message, { error: err, path: req.path, body: req.body });
+    // globalLogger.log('error', err.message, { error: err, path: req.path, body: req.body });
     let responseStatus = 500;
     let jsonResponse = {
         data: {},

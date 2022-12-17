@@ -3,7 +3,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const logger_1 = require("../../common/logger");
 // import fcm from "../../config/firebase/fcm";
 const i18n_1 = __importDefault(require("../../config/i18n"));
 const base_repository_1 = __importDefault(require("./base.repository"));
@@ -77,9 +76,9 @@ class BaseController extends data_table_controller_1.default {
                 }
             }
             if (statusCode && statusCode > 200) {
-                logger_1.globalLogger.log('error', `server error: ${message}`, { statusCode, statusFlag, error, path: response.path, body: response.body });
+                // globalLogger.log('error', `server error: ${message}`, { statusCode, statusFlag, error, path: response.path, body: response.body });
                 if (statusCode >= 500) {
-                    logger_1.databaseLogger.log('error', `Database error: ${message}`, { statusCode, statusFlag, error, path: response.path, body: response.body });
+                    // databaseLogger.log('error', `Database error: ${message}`, { statusCode, statusFlag, error, path: response.path, body: response.body });
                     statusCode = 500;
                     statusFlag = false;
                     message = i18n_1.default.__('went_wrong');
@@ -97,7 +96,7 @@ class BaseController extends data_table_controller_1.default {
             });
         }
         catch (error) {
-            logger_1.globalLogger.info(`server error: setResponse catch Error`, { msgType, statusFlag, statusCode, message, data, error });
+            // globalLogger.info(`server error: setResponse catch Error`, { msgType, statusFlag, statusCode, message, data, error });
             statusCode = 500;
             status = 'FAILURE';
             data = {};

@@ -1,5 +1,5 @@
 import mysql from "mysql2";
-import { databaseLogger, serverLogger } from "../../common/logger";
+// import { databaseLogger, serverLogger } from "../../common/logger";
 import config from "../config";
 
 const pool = mysql.createPool({
@@ -23,24 +23,24 @@ pool.getConnection((err: NodeJS.ErrnoException, connection: mysql.PoolConnection
         } */
 
         if (err.code === "PROTOCOL_CONNECTION_LOST") {
-            databaseLogger.error("Mysql master database connection was closed.");
+            // databaseLogger.error("Mysql master database connection was closed.");
         }
         if (err.code === "ER_CON_COUNT_ERROR") {
-            databaseLogger.error("Mysql master database has too many connections.");
+            // databaseLogger.error("Mysql master database has too many connections.");
         }
         if (err.code === "ECONNREFUSED") {
-            databaseLogger.error("Mysql master database connection was refused.");
+            // databaseLogger.error("Mysql master database connection was refused.");
         }
 
         if (err.code === "ETIMEDOUT") {
-            databaseLogger.error("Mysql master database connection timed out.");
+            // databaseLogger.error("Mysql master database connection timed out.");
         }
-        serverLogger.error(`(Mysql master database Connection Error Code: ${err.code})--> ${err.message}`);
+        // serverLogger.error(`(Mysql master database Connection Error Code: ${err.code})--> ${err.message}`);
         return;
     }
 
     if (connection) {
-        serverLogger.info("Mysql master database connection established successfully.");
+        // serverLogger.info("Mysql master database connection established successfully.");
         connection.release();
     }
 
@@ -53,7 +53,7 @@ pool.on("release", (connection) => {
 });
 
 pool.on("enqueue", () => {
-    databaseLogger.info("Waiting for available connection slot");
+    // databaseLogger.info("Waiting for available connection slot");
 });
 
 // const masterDb = pool;

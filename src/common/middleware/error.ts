@@ -1,10 +1,10 @@
 import { NextFunction, Request, Response } from 'express'
-import { globalLogger } from '../logger';
+// import { globalLogger } from '../logger';
 class JSONParseError extends SyntaxError {
   public status: number;
 }
 export default (err: JSONParseError, req: Request, res: Response, next: NextFunction) => {
-  globalLogger.log('error', err.message, { error: err, path: req.path, body: req.body });
+  // globalLogger.log('error', err.message, { error: err, path: req.path, body: req.body });
   let responseStatus = 500;
   let jsonResponse = {
     data: {},

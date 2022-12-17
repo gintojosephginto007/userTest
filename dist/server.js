@@ -24,7 +24,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Server = void 0;
 const path = __importStar(require("path"));
-const logger_1 = require("./common/logger");
+// import { globalLogger, serverLogger } from './common/logger';
 const error_1 = __importDefault(require("./common/middleware/error"));
 const routes_1 = __importDefault(require("./routes"));
 class Server {
@@ -33,15 +33,15 @@ class Server {
         this.initApp();
     }
     start(port) {
-        this.app.listen(port, () => logger_1.serverLogger.info(`server started at http://localhost:${port}`));
+        // this.app.listen(port, () => serverLogger.info(`server started at http://localhost:${port}`));
     }
     initApp() {
         process.on('uncaughtException', (err) => {
-            logger_1.globalLogger.error('Uncaught Exception at:' + err.message, err);
+            // globalLogger.error('Uncaught Exception at:' + err.message, err)
             process.exit(1);
         });
         process.on('unhandledRejection', (reason, promise) => {
-            logger_1.globalLogger.error('Unhandled Rejection at:' + reason);
+            // globalLogger.error('Unhandled Rejection at:' + reason)
             process.exit(1);
         });
         this.app.disable('x-powered-by');
