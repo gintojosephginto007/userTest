@@ -45,7 +45,7 @@ class Server {
             process.exit(1);
         });
         this.app.disable('x-powered-by');
-        this.app.use('/api', routes_1.default);
+        this.app.use('', routes_1.default);
         /* this.app.get('/', (req, res) => {
           res.status(200).send({ message: 'Welcome to our restful API' })
         }) */

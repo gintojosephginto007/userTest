@@ -8,6 +8,6 @@ const common_middleware_1 = __importDefault(require("../common/middleware/common
 const routes_1 = __importDefault(require("../modules/user/routes"));
 const router = express_1.default.Router({ caseSensitive: true });
 router.use(common_middleware_1.default);
-router.use("/user", routes_1.default);
+router.use("", routes_1.default);
 exports.default = router;
 //# sourceMappingURL=index.js.map

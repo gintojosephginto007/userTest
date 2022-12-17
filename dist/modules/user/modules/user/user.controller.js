@@ -49,6 +49,21 @@ class UserController extends base_controller_1.default {
             }
         });
     }
+    health(request, response, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                this.setResponse({
+                    response,
+                    statusFlag: true,
+                    statusCode: 200,
+                    data: {}
+                });
+            }
+            catch (error) {
+                next(error);
+            }
+        });
+    }
 }
 exports.default = UserController;
 //# sourceMappingURL=user.controller.js.map

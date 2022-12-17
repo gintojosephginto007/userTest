@@ -4,6 +4,6 @@ import userRouter from "../modules/user/routes";
 
 const router = express.Router({ caseSensitive: true })
 router.use(commonMiddleware);
-router.use("/user", userRouter);
+router.use("", userRouter);
 
 export default router

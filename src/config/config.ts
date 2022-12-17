@@ -25,6 +25,6 @@ export default {
     mysqlHashKey: process.env.MYSQL_HASH_KEY,
 
     mysqlReadQueueLimit: parseInt(process.env.MYSQL_READ_QUEUE_LIMIT as string, 10),
-   
+
 };
 

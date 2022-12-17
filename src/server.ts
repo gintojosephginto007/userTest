@@ -27,7 +27,7 @@ export class Server {
       process.exit(1)
     })
     this.app.disable('x-powered-by')
-    this.app.use('/api', router)
+    this.app.use('', router)
 
     /* this.app.get('/', (req, res) => {
       res.status(200).send({ message: 'Welcome to our restful API' })

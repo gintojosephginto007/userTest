@@ -34,6 +34,20 @@ class UserController extends BaseController {
             next(error);
         }
     }
+    async health(request: Request, response: Response, next: NextFunction) {
+        try {
+            this.setResponse({
+                response,
+                statusFlag: true,
+                statusCode: 200,
+                data: {}
+            })
+
+        } catch (error) {
+            next(error);
+        }
+    }
+
 }
 
 export default UserController;
